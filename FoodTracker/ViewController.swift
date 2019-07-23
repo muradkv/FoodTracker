@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: Properties
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var mealNameLabel: UILabel!
+    @IBOutlet var photoImageVIew: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
