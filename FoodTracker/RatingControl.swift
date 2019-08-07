@@ -36,5 +36,14 @@ class RatingControl: UIStackView {
         
         // Add the button to the stack
         addArrangedSubview(button)
+        
+        // Setup the button action
+        button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
+    }
+    
+    //MARK: Button Action
+    
+    @objc func ratingButtonTapped(button: UIButton) {
+        print("Button pressed 👍")
     }
 }
