@@ -14,7 +14,11 @@ import UIKit
     
     private var ratingButtons = [UIButton]()
     
-    var rating = 0
+    var rating = 0 {
+        didSet {
+            updateButtonSelectionStates()
+        }
+    }
     
     @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
         didSet {
@@ -70,6 +74,7 @@ import UIKit
             ratingButtons.append(button)
         }
         
+        updateButtonSelectionStates()
     }
     
     //MARK: Button Action
@@ -88,6 +93,13 @@ import UIKit
         } else {
             // Otherwise set the rating to the selected star
             rating = selectedRating
+        }
+    }
+    
+    private func updateButtonSelectionStates() {
+        for (index, button) in ratingButtons.enumerated() {
+            // If the index of a button is less than the rating, that button should be selected.
+            button.isSelected = index < rating
         }
     }
 }
